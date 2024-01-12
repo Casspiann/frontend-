@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User SignUp </title>
+</head>
+<body>
+    <div style="margin-left: 35%; margin-right: 25%; margin-top: 10%; background-color: black ">
+        <form>
+            <fieldset>
+                <br>
+                <h2 style="margin-left: 40%; color: white;">Login</h2>
+                <label style="color: red;" for="name">Name:</label><br>
+                <input style="width: 80%;" type="text" required id="name" name="name"><br><br>
+                <label style="color: red;" for="email">Email:</label><br>
+                <input style="width: 80%;" type="email" required id="email" name="email"><br><br>
+                <label style="color: red;" for="pass">Password:</label><br>
+                <input style="width: 80%;" type="password" required id="pass" name="pass"><br><br>
+                <button type="button" style="color: red; background-color: yellow; border-radius: 20px; margin-left: 40%; " name="submit" id="submit">Sign Up</button>
+                <br>
+                <a style="color: blue;" href="../login/login.html">Login</a>
+                
+            </fieldset>
+        </form>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        var item = document.getElementById("submit");
+        item.addEventListener('click', details);
+
+        function details() {
+            let Name = document.getElementById('name').value;
+            let Email = document.getElementById('email').value;
+            let Password = document.getElementById('pass').value;
+            const obj = {
+                name: Name,
+                email: Email,
+                password: Password
+            }
+            axios.post("http://localhost:4000/users/signup", obj, {
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => {
+                // Handle the response from the server if needed
+                console.log(response.data);
+                window.location.href = '../login/login.html';
+            })
+            .catch(error => {
+                // Handle any errors that occur during the request
+                console.error(error);
+            });
+        }
+    </script>
+</body>
+</html>
