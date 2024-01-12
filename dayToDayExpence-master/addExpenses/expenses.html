@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Amount</title>
+    <style>
+        #pagination {
+            text-align: center; /* Center align the content horizontally */
+            position: fixed; /* Position fixed to keep it at the bottom */
+            bottom: 10px;
+            left: 0; /* Center align the content horizontally */
+            width: 100%; /* Take up the full width of the viewport */
+            background-color: #fff; /* Set a background color if needed */
+            padding: 10px; /* Add padding for better visibility */
+            box-shadow: 0px -5px 5px rgba(0, 0, 0, 0.2); /* Optional: Add a subtle shadow */
+            }
+    </style>
+</head>
+<body>
+    <form>
+        <label for="ExpenseAmount">Choose Expense Amount:</label>
+        <input type="text" id="ExpenseAmount" name="ExpenseAmount">
+        <label for="description">Choose Description:</label>
+        <input type="text" id="description" name="description">
+        <label for="category">Choose a category:</label>
+        <select name="category" id="category">
+            <option value="fuel">Fuel</option>
+            <option value="movie">Movie</option>
+            <option value="food">Food</option>
+            <option value="Electricity">Electricity</option>
+        </select>
+        <input id="Submit" type="button" class="btn btn-primary" value="Add Expense"><br>
+    </form>
+        <div id="division1"></div>
+        <ul id="items" class="ui">
+        </ul>
+       
+      
+        <button style="color:rgb(114, 114, 170); background-color: rgb(61, 28, 28);" type="button" id="rzp-button1" class="rzp-button1">BUY PREMIUM</button>
+        <button onclick="download()" id="downloadexpense">Download File</button>
+        <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+        <div id="division2"></div>
+        <div id = "division3"></div>
+        
+        <ul id="unlist" >
+        </ul>
+
+        
+        <div  id="pagination">
+            <label for="expensePerPageInput">Expenses per Page:</label>
+            <input type="number" id="expensePerPageInput" min="5" max="40">
+            <button id="updatePerPage">Update</button>
+            
+            <button id="previousPage">Previous</button>
+            <span id="currentPage">Page 1</span>
+            <button id="nextPage">Next</button>
+        </div>
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.4/axios.min.js"></script>
+    <script src="expensess.js"></script>
+</body>
+</html>
